@@ -1,24 +1,64 @@
 import React from 'react'
 import { useFormik } from 'formik';
 import { MDBInput } from 'mdb-react-ui-kit';
+import * as Yup from 'yup';
+import app_config from '../../config';
+import Swal from 'sweetalert2';
+
+
+const SignupSchema=Yup.object().shape({
+  firstname:Yup.string()
+  .min(2,'Too short!')
+  .max(50,'Too Long!')
+  .required('required'),
+  lastname:Yup.string()
+  .min(2,'Too short!')
+  .max(50,'Too Long!')
+  .required('required'),
+  email:Yup.string().email('invalid email').required('required'),
+  password:Yup.string().required('password is required')
+});
 
 const Sign_up = () => {
 
+  const {themeColorLight} = app_config;
+
   const signupform = useFormik({
     initialValues: {
-      name: '',
-      Last: '',
+      firstname: '',
+      lastname: '',
       email: '',
       password: '',
     },
-    useFormik: values => (console.log(values))
+
+    onSubmit: async values => {
+      console.log(values);
+      const res = await fetch('http://localhost:5000/user/add',{
+          method: 'post',
+          body: JSON.stringify(values),
+          headers:{'Content-Type':'application/json'}
+        })
+
+        console.log(res.status)
+
+        if(res.status===200){
+          Swal.fire({
+            icon:'success',
+            title:'success',
+            text:'user Registered Successfully'
+          })
+        }
+
+    },
+    validationSchema : SignupSchema
+
   })
   return (
-    <div>
+    <div style={{backgroundColor: themeColorLight}}>
 
       <>
         {/* Section: Design Block */}
-        <section className="text-center text-lg-start bg-black ">
+        <section className="text-center text-lg-start">
           <style
             dangerouslySetInnerHTML={{
               __html:
@@ -38,7 +78,7 @@ const Sign_up = () => {
                     backdropFilter: "blur(30px)"
                   }}
                 >
-                  <div className="card-body p-5 shadow-5 text-center">
+                  <div className="card-body p-5 shadow-5">
                     <h2 className="fw-bold mb-5">Sign up now</h2>
 
 
@@ -46,23 +86,27 @@ const Sign_up = () => {
                       {/* 2 column grid layout with text inputs for the first and last names */}
                       <div className="row">
                         <div className="col-md-6 mb-4">
-                          <MDBInput label='First Name' id='name' type='text' value={signupform.values.name}
+                          <MDBInput label='First Name' id='firstname' type='text' value={signupform.values.firstname}
                             onChange={signupform.handleChange} />
+                            <p className='m-0 text-danger'>{signupform.errors.firstname}</p>
                         </div>
                         <div className="col-md-6 mb-4">
-                          <MDBInput label='Last Name' id='Last' type='text' value={signupform.values.Last}
+                          <MDBInput label='Last Name' id='lastname' type='text' value={signupform.values.lastname}
                             onChange={signupform.handleChange} />
+                            <p className='m-0 text-danger'>{signupform.errors.lastname}</p>
                         </div>
                       </div>
                       {/* Email input */}
                       <div className="form-outline mb-4">
                         <MDBInput label='Email' id='email' type='email' value={signupform.values.email}
                           onChange={signupform.handleChange} />
+                          <p className='m-0 text-danger'>{signupform.errors.email}</p>
                       </div>
                       {/* Password input */}
                       <div className="form-outline mb-4">
                         <MDBInput label='Password' id='password' type='text' value={signupform.values.password}
                           onChange={signupform.handleChange} />
+                          <p className='m-0 text-danger'>{signupform.errors.password}</p>
 
                       </div>
                       {/* Checkbox */}
@@ -119,7 +163,7 @@ const Sign_up = () => {
               </div>
               <div className="col-lg-6 mb-5 mb-lg-0">
                 <img
-                  src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg"
+                  src="https://images.all-free-download.com/images/graphiclarge/adventure_travel_poster_boat_stream_sketch_cartoon_design_6854307.jpg"
                   className="w-100 rounded-4 shadow-4"
                   alt=""
                 />
@@ -132,8 +176,6 @@ const Sign_up = () => {
       </>
 
     </div>
-
-
   )
 }
 
