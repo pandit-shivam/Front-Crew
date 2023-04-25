@@ -88,11 +88,13 @@ const Sign_up = () => {
                         <div className="col-md-6 mb-4">
                           <MDBInput label='First Name' id='firstname' type='text' value={signupform.values.firstname}
                             onChange={signupform.handleChange} />
+                            {/*this statement is used for form validation */}
                             <p className='m-0 text-danger'>{signupform.errors.firstname}</p>
                         </div>
                         <div className="col-md-6 mb-4">
                           <MDBInput label='Last Name' id='lastname' type='text' value={signupform.values.lastname}
                             onChange={signupform.handleChange} />
+                            {/*this statement is used for form validation */}
                             <p className='m-0 text-danger'>{signupform.errors.lastname}</p>
                         </div>
                       </div>
@@ -100,12 +102,14 @@ const Sign_up = () => {
                       <div className="form-outline mb-4">
                         <MDBInput label='Email' id='email' type='email' value={signupform.values.email}
                           onChange={signupform.handleChange} />
+                          {/*this statement is used for form validation */}
                           <p className='m-0 text-danger'>{signupform.errors.email}</p>
                       </div>
                       {/* Password input */}
                       <div className="form-outline mb-4">
                         <MDBInput label='Password' id='password' type='text' value={signupform.values.password}
                           onChange={signupform.handleChange} />
+                          {/*this statement is used for form validation */}
                           <p className='m-0 text-danger'>{signupform.errors.password}</p>
 
                       </div>
