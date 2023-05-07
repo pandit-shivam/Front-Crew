@@ -4,6 +4,7 @@ import app_config from '../../config';
 
 const {themeColor, title} = app_config;
 
+
 const Navbar = () => {
   return (
     <div>
@@ -24,7 +25,7 @@ const Navbar = () => {
           </button>
           {/* Collapsible wrapper */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto my-auto">
+            <ul className=" navbar-nav me-auto my-auto">
               <li className="nav-item">
                 <NavLink className="nav-link fw-bold text-white my-auto" to="/main/Home">
                   
@@ -43,9 +44,9 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link fw-bold" href="#!">
-                  Testimonials
-                </a>
+                <NavLink className="nav-link fw-bold" to="/main/Login">
+                  Login
+                </NavLink>
               </li>
               <li className="nav-item">
                 <a className="nav-link fw-bold" href="#!">
