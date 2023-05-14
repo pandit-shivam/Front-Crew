@@ -207,7 +207,7 @@ const Home = () => {
             >
               <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
             </svg>
-            <div className="container">
+            <div className="container,height:'100%'">
               <div className="carousel-caption text-start">
                 <h1>Example headline.</h1>
                 <p>

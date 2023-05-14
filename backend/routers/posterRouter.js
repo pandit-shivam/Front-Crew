@@ -1,6 +1,6 @@
 const {Router} = require('express');
 const router=Router();
-const Model=require('../models/userModel');
+const Model=require('../models/posterModel');
 
 
 router.post('/add',(req,res)=>{
@@ -12,6 +12,7 @@ router.post('/add',(req,res)=>{
         res.status(500).json(err);
     });
 });
+
 router.get('/getall',(req,res)=>{
     Model.find({})
     .then((result) => {
@@ -21,7 +22,6 @@ router.get('/getall',(req,res)=>{
         res.status(500).json(err);
     });
 });
-
 
 router.post('/authenticate',(req,res)=>{
     Model.findOne(req.body)

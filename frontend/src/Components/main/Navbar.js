@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import app_config from '../../config';
+import contact from './Contact';
 
 const {themeColor, title} = app_config;
 
@@ -33,25 +34,25 @@ const Navbar = () => {
                   <span className='h2'>{title}</span>
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item mt-2">
                 <NavLink className="nav-link fw-bold" to="/main/Home">
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item mt-2">
                 <NavLink className="nav-link  fw-bold" to="/main/Sign_up">
                   Sign_up
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item mt-2">
                 <NavLink className="nav-link fw-bold" to="/main/Login">
                   Login
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <a className="nav-link fw-bold" href="#!">
+              <li className="nav-item mt-2">
+                <NavLink className="nav-link fw-bold" to="/main/contact">
                   Contact
-                </a>
+                </NavLink>
               </li>
             </ul>
             <ul className="navbar-nav flex-row">
