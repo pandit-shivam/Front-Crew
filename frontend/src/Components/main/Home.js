@@ -1,501 +1,300 @@
-import React from 'react'
+import React from 'react';
+import app_config from '../../config';
+import './Homestyle.css';
+// import IntroImg1 from '../Assets/pic333.jpg';
+// import Image222 from '../Assets/pic333'
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+// import Footer from '../Footer';
+
+
+import { Pagination, Navigation } from "swiper"
+
+
+const {themecolor1} = app_config;
 
 const Home = () => {
   return (
+    
     <div><>
-    <meta charSet="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta
-      name="author"
-      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
-    />
-    <meta name="generator" content="Hugo 0.111.3" />
-    <title>Carousel Template · Bootstrap v5.3</title>
-    <link
-      rel="canonical"
-      href="https://getbootstrap.com/docs/5.3/examples/carousel/"
-    />
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <style
-      dangerouslySetInnerHTML={{
-        __html:
-          "\n      .bd-placeholder-img {\n        font-size: 1.125rem;\n        text-anchor: middle;\n        -webkit-user-select: none;\n        -moz-user-select: none;\n        user-select: none;\n      }\n\n      @media (min-width: 768px) {\n        .bd-placeholder-img-lg {\n          font-size: 3.5rem;\n        }\n      }\n\n      .b-example-divider {\n        width: 100%;\n        height: 3rem;\n        background-color: rgba(0, 0, 0, .1);\n        border: solid rgba(0, 0, 0, .15);\n        border-width: 1px 0;\n        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);\n      }\n\n      .b-example-vr {\n        flex-shrink: 0;\n        width: 1.5rem;\n        height: 100vh;\n      }\n\n      .bi {\n        vertical-align: -.125em;\n        fill: currentColor;\n      }\n\n      .nav-scroller {\n        position: relative;\n        z-index: 2;\n        height: 2.75rem;\n        overflow-y: hidden;\n      }\n\n      .nav-scroller .nav {\n        display: flex;\n        flex-wrap: nowrap;\n        padding-bottom: 1rem;\n        margin-top: -1px;\n        overflow-x: auto;\n        text-align: center;\n        white-space: nowrap;\n        -webkit-overflow-scrolling: touch;\n      }\n\n      .btn-bd-primary {\n        --bd-violet-bg: #712cf9;\n        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;\n\n        --bs-btn-font-weight: 600;\n        --bs-btn-color: var(--bs-white);\n        --bs-btn-bg: var(--bd-violet-bg);\n        --bs-btn-border-color: var(--bd-violet-bg);\n        --bs-btn-hover-color: var(--bs-white);\n        --bs-btn-hover-bg: #6528e0;\n        --bs-btn-hover-border-color: #6528e0;\n        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);\n        --bs-btn-active-color: var(--bs-btn-hover-color);\n        --bs-btn-active-bg: #5a23c8;\n        --bs-btn-active-border-color: #5a23c8;\n      }\n      .bd-mode-toggle {\n        z-index: 1500;\n      }\n    "
-      }}
-    />
-    {/* Custom styles for this template */}
-    <link href="carousel.css" rel="stylesheet" />
-    <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-      </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
-        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-      </symbol>
-    </svg>
-    <div className="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button
-        className="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-        id="bd-theme"
-        type="button"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        aria-label="Toggle theme (auto)"
+
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
       >
-        <svg className="bi my-1 theme-icon-active" width="1em" height="1em">
-          <use href="#circle-half" />
-        </svg>
-        <span className="visually-hidden" id="bd-theme-text">
-          Toggle theme
-        </span>
-      </button>
-      <ul
-        className="dropdown-menu dropdown-menu-end shadow"
-        aria-labelledby="bd-theme-text"
-      >
-        <li>
-          <button
-            type="button"
-            className="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="light"
-            aria-pressed="false"
-          >
-            <svg
-              className="bi me-2 opacity-50 theme-icon"
-              width="1em"
-              height="1em"
-            >
-              <use href="#sun-fill" />
-            </svg>
-            Light
-            <svg className="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2" />
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            className="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="dark"
-            aria-pressed="false"
-          >
-            <svg
-              className="bi me-2 opacity-50 theme-icon"
-              width="1em"
-              height="1em"
-            >
-              <use href="#moon-stars-fill" />
-            </svg>
-            Dark
-            <svg className="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2" />
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            className="dropdown-item d-flex align-items-center active"
-            data-bs-theme-value="auto"
-            aria-pressed="true"
-          >
-            <svg
-              className="bi me-2 opacity-50 theme-icon"
-              width="1em"
-              height="1em"
-            >
-              <use href="#circle-half" />
-            </svg>
-            Auto
-            <svg className="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2" />
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-    {/* <header data-bs-theme="dark">
-      <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Carousel
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarCollapse">
-            <ul className="navbar-nav me-auto mb-2 mb-md-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Link
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+        <SwiperSlide>
+          <div className='myslide' style={{ backgroundImage: 'url("https://venngage-wordpress.s3.amazonaws.com/uploads/2021/11/section-3-poster-smaller.png")' }}>
           </div>
-        </div>
-      </nav>
-    </header> */}
-    <main>
-      <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to={0}
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          />
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to={1}
-            aria-label="Slide 2"
-          />
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to={2}
-            aria-label="Slide 3"
-          />
-        </div>
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <svg
-              className="bd-placeholder-img"
-              width="100%"
-              height="100%"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-            </svg>
-            <div className="container,height:'100%'">
-              <div className="carousel-caption text-start">
-                <h1>Example headline.</h1>
-                <p>
-                  Some representative placeholder content for the first slide of
-                  the carousel.
-                </p>
-                <p>
-                  <a className="btn btn-lg btn-primary" href="#">
-                    Sign up today
-                  </a>
-                </p>
-              </div>
-            </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className='myslide' style={{ backgroundImage: 'url("https://images.pexels.com/photos/310435/pexels-photo-310435.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")' }}>
           </div>
-          <div className="carousel-item">
-            <svg
-              className="bd-placeholder-img"
-              width="100%"
-              height="100%"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-            </svg>
-            <div className="container">
-              <div className="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>
-                  Some representative placeholder content for the second slide of
-                  the carousel.
-                </p>
-                <p>
-                  <a className="btn btn-lg btn-primary" href="#">
-                    Learn more
-                  </a>
-                </p>
-              </div>
-            </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className='myslide' style={{ backgroundImage: 'url("https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")' }}>
           </div>
-          <div className="carousel-item">
-            <svg
-              className="bd-placeholder-img"
-              width="100%"
-              height="100%"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-            </svg>
-            <div className="container">
-              <div className="carousel-caption text-end">
-                <h1>One more for good measure.</h1>
-                <p>
-                  Some representative placeholder content for the third slide of
-                  this carousel.
-                </p>
-                <p>
-                  <a className="btn btn-lg btn-primary" href="#">
-                    Browse gallery
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="prev"
-        >
-          <span className="carousel-control-prev-icon" aria-hidden="true" />
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="next"
-        >
-          <span className="carousel-control-next-icon" aria-hidden="true" />
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
-      {/* Marketing messaging and featurettes
+        </SwiperSlide>
+      </Swiper>
+
+      <main style={{backgroundColor: themecolor1}}>
+
+        {/* Marketing messaging and featurettes
     ================================================== */}
-      {/* Wrap the rest of the page in another container to center all the content. */}
-      <div className="container marketing mt-5">
-        {/* Three columns of text below the carousel */}
-        <div className="row">
-          <div className="col-lg-4">
-            <svg
-              className="bd-placeholder-img rounded-circle"
-              width={140}
-              height={140}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-            </svg>
-            <h2 className="fw-normal ">Heading</h2>
-            <p>
-              Some representative placeholder content for the three columns of
-              text below the carousel. This is the first column.
-            </p>
-            <p>
-              <a className="btn btn-secondary" href="#">
-                View details »
-              </a>
-            </p>
+        {/* Wrap the rest of the page in another container to center all the content. */}
+        <div className="container marketing mt-0">
+          {/* Three columns of text below the carousel */}
+          <div className="row">
+            <div className="col-lg-4">
+              <svg
+                className="bd-placeholder-img rounded-circle"
+                width={140}
+                height={140}
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Placeholder"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                <image
+                 href="https://cdn.pixabay.com/photo/2020/06/09/18/11/box-write-in-it-5279529_1280.jpg"  
+                 width={140}                     
+                 height={140}                   
+                 x={0}                           // Set the x-coordinate
+                 y={0}                           // Set the y-coordinate
+                 />
+              </svg>
+              <h2 className="fw-normal ">Work</h2>
+              <p>
+              	Our project Front crew will provide a platform where design any design you want
+              </p>
+              <p>
+                <a className="btn btn-secondary" href="#">
+                  View details »
+                </a>
+              </p>
+            </div>
+            {/* /.col-lg-4 */}
+            <div className="col-lg-4">
+              <svg
+                className="bd-placeholder-img rounded-circle"
+                width={140}
+                height={140}
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Placeholder"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                <image
+                 href="https://cdn.pixabay.com/photo/2022/05/20/10/07/window-7209118_640.jpg"  
+                 width={140}                     
+                 height={140}                   
+                 x={0}                           // Set the x-coordinate
+                 y={0}                           // Set the y-coordinate
+                 />
+              </svg>
+              <h2 className="fw-normal">Feather</h2>
+              <p>
+              The main feature of our project that automate design making from data provided
+              </p>
+              <p>
+                <a className="btn btn-secondary" href="#">
+                  View details »
+                </a>
+              </p>
+            </div>
+            {/* /.col-lg-4 */}
+            <div className="col-lg-4">
+              <svg
+                className="bd-placeholder-img rounded-circle"
+                width={140}
+                height={140}
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Placeholder"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                <image
+                 href="https://img.freepik.com/free-photo/social-media-concept-with-emojis-icons_23-2149834255.jpg?w=740&t=st=1685859347~exp=1685859947~hmac=326d4fd6eb57050d682fc74cac416de424a0952b3cd81f41bd0cf8ce9bc2bb3a"  
+                 width={140}                     
+                 height={140}                   
+                 x={0}                           // Set the x-coordinate
+                 y={0}                           // Set the y-coordinate
+                 />
+              </svg>
+              <h2 className="fw-normal">Uses</h2>
+              <p>
+              We can use as company collages and repetative content has design like;-
+               Placement  of reference 
+              </p>
+              <p>
+                <a className="btn btn-secondary" href="#">
+                  View details »
+                </a>
+              </p>
+            </div>
+            {/* /.col-lg-4 */}
           </div>
-          {/* /.col-lg-4 */}
-          <div className="col-lg-4">
-            <svg
-              className="bd-placeholder-img rounded-circle"
-              width={140}
-              height={140}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-            </svg>
-            <h2 className="fw-normal">Heading</h2>
-            <p>
-              Another exciting bit of representative placeholder content. This
-              time, we've moved on to the second column.
-            </p>
-            <p>
-              <a className="btn btn-secondary" href="#">
-                View details »
-              </a>
-            </p>
+          {/* /.row */}
+          {/* START THE FEATURETTES */}
+          <hr className="featurette-divider" />
+          <div className="row featurette">
+            <div className="col-md-7">
+              <h2 className="featurette-heading fw-normal lh-1">
+                What is FRONT CREW.{" "}
+                <span className="text-body-secondary">It’ll blow your mind.</span>
+              </h2>
+              <p className="lead">
+              ou can design as many poster ,post,banner,etc you want form to these design tools but there is no automation in those platfrom that means you cannot give a list of instruction for doing tasks repetitively
+
+Our project front crew will provide a platform where design any design you want
+Our tool has been designed to be used by organizations like company and collages to design repetitive such as :
+Placement of reference , make poster for social media,make poster for collages or school events
+              </p>
+            </div>
+            <div className="col-md-5">
+              <svg
+                className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                width={500}
+                height={500}
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Placeholder: 500x500"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
+                <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
+                  500x500
+                </text>
+                <image
+                 href="https://img.freepik.com/free-vector/hand-drawn-essay-illustration_23-2150272533.jpg?size=626&ext=jpg&ga=GA1.2.1709204083.1685859348&semt=ais"  
+                 width={500}                     
+                 height={500}                   
+                 x={0}                           // Set the x-coordinate
+                 y={0}                           // Set the y-coordinate
+                 />
+              </svg>
+            </div>
           </div>
-          {/* /.col-lg-4 */}
-          <div className="col-lg-4">
-            <svg
-              className="bd-placeholder-img rounded-circle"
-              width={140}
-              height={140}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-            </svg>
-            <h2 className="fw-normal">Heading</h2>
-            <p>
-              And lastly this, the third column of representative placeholder
-              content.
-            </p>
-            <p>
-              <a className="btn btn-secondary" href="#">
-                View details »
-              </a>
-            </p>
+          <hr className="featurette-divider" />
+          <div className="row featurette">
+            <div className="col-md-7 order-md-2">
+              <h2 className="featurette-heading fw-normal lh-1">
+                Oh yeah!! create poster automatically{" "}
+                
+              </h2>
+              <p className="lead">
+              Our project provide facilities of creating bulk poster in less time and aslo provide facilites for customizing template as per the requirement 
+              Front crew is not for sophisticated person layman also handle the front crew easily
+              Front crew is a valuble tool for individuals and business who want to  create professional-looking designs without needing extensive graphic design skill
+              </p>
+            </div>
+            <div className="col-md-5 order-md-1">
+              <svg
+                className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                width={500}
+                height={500}
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Placeholder: 500x500"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
+                <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
+                  500x500
+                </text>
+                <image
+                 href="https://images.pexels.com/photos/7015073/pexels-photo-7015073.jpeg?auto=compress&cs=tinysrgb&w=600"  
+                 width={450}                     
+                 height={500}                   
+                 x={0}                           // Set the x-coordinate
+                 y={0}                           // Set the y-coordinate
+                 />
+              </svg>
+            </div>
           </div>
-          {/* /.col-lg-4 */}
+          <hr className="featurette-divider" />
+          <div className="row featurette">
+            <div className="col-md-7">
+              <h2 className="featurette-heading fw-normal lh-1">
+                And lastly, this one.{" "}
+                <span className="text-body-secondary">Advantage</span>
+              </h2>
+              <p className="lead">
+              This platform is designed to be intuitive and user-friendly, with drag-and-drop functionality
+              Easy-to-use and comprehensive design platform
+              This  platform provide user the option to design posters in bulk.
+
+              </p>
+            </div>
+            <div className="col-md-5">
+              <svg
+                className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                width={500}
+                height={500}
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Placeholder: 500x500"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
+                <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
+                  500x500
+                </text>
+                <image
+                 href="https://static-cse.canva.com/blob/1066714/1131w-7NCxbPkt3Y4.jpg"  
+                 width={450}                     
+                 height={500}                   
+                 x={0}                           // Set the x-coordinate
+                 y={0}                           // Set the y-coordinate
+                 />
+              </svg>
+            </div>
+          </div>
+          <hr className="featurette-divider" />
+          {/* /END THE FEATURETTES */}
         </div>
-        {/* /.row */}
-        {/* START THE FEATURETTES */}
-        <hr className="featurette-divider" />
-        <div className="row featurette">
-          <div className="col-md-7">
-            <h2 className="featurette-heading fw-normal lh-1">
-              First featurette heading.{" "}
-              <span className="text-body-secondary">It’ll blow your mind.</span>
-            </h2>
-            <p className="lead">
-              Some great placeholder content for the first featurette here.
-              Imagine some exciting prose here.
-            </p>
-          </div>
-          <div className="col-md-5">
-            <svg
-              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width={500}
-              height={500}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: 500x500"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
-              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
-                500x500
-              </text>
-            </svg>
-          </div>
-        </div>
-        <hr className="featurette-divider" />
-        <div className="row featurette">
-          <div className="col-md-7 order-md-2">
-            <h2 className="featurette-heading fw-normal lh-1">
-              Oh yeah, it’s that good.{" "}
-              <span className="text-body-secondary">See for yourself.</span>
-            </h2>
-            <p className="lead">
-              Another featurette? Of course. More placeholder content here to give
-              you an idea of how this layout would work with some actual
-              real-world content in place.
-            </p>
-          </div>
-          <div className="col-md-5 order-md-1">
-            <svg
-              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width={500}
-              height={500}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: 500x500"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
-              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
-                500x500
-              </text>
-            </svg>
-          </div>
-        </div>
-        <hr className="featurette-divider" />
-        <div className="row featurette">
-          <div className="col-md-7">
-            <h2 className="featurette-heading fw-normal lh-1">
-              And lastly, this one.{" "}
-              <span className="text-body-secondary">Checkmate.</span>
-            </h2>
-            <p className="lead">
-              And yes, this is the last block of representative placeholder
-              content. Again, not really intended to be actually read, simply here
-              to give you a better view of what this would look like with some
-              actual content. Your content.
-            </p>
-          </div>
-          <div className="col-md-5">
-            <svg
-              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width={500}
-              height={500}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: 500x500"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
-              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
-                500x500
-              </text>
-            </svg>
-          </div>
-        </div>
-        <hr className="featurette-divider" />
-        {/* /END THE FEATURETTES */}
-      </div>
-      {/* /.container */}
-      {/* FOOTER */}
-      <footer className="container">
-        <p className="float-end">
-          <a href="#">Back to top</a>
-        </p>
-        <p>
-          © 2017–2023 Company, Inc. · <a href="#">Privacy</a> ·{" "}
-          <a href="#">Terms</a>
-        </p>
-      </footer>
-    </main>
-  </>
-  </div>
+        {/* /.container */}
+        {/* FOOTER */}
+        <footer className="container">
+          <p className="float-end">
+            <a href="#">Back to top</a>
+          </p>
+          <p>
+            © 2017–2023 Company, Inc. · <a href="#">Privacy</a> ·{" "}
+            <a href="#">Terms</a>
+          </p>
+        </footer>
+      </main>
+    </>
+    </div>
+    
   )
 }
 

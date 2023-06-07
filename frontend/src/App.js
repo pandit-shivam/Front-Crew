@@ -4,8 +4,8 @@ import Navbar from './Components/main/Navbar';
 import { BrowserRouter, NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import Sign_up from './Components/main/Sign_up';
 import Home from './Components/main/Home';
-import Main from './Components/main';
-import Login from './Components/main/login';
+import Main from './Components/main/Index';
+import Login from './Components/main/Login';
 import Contact from './Components/main/Contact';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
           <Route path="main" element={<Main />}>
             <Route path="home" element={<Home />} />
             <Route path="sign_up" element={<Sign_up />} />
-            <Route path="login" element={<Login />} />
+            <Route path="Login" element={<Login />} />
             <Route path="contact" element={<Contact />} />
           </Route>
         </Routes>

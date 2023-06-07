@@ -4,6 +4,7 @@ import { MDBInput } from 'mdb-react-ui-kit';
 import * as Yup from 'yup';
 import app_config from '../../config';
 import Swal from 'sweetalert2';
+import './Signupstyle.css';
 
 
 const SignupSchema=Yup.object().shape({
@@ -79,7 +80,7 @@ const Sign_up = () => {
                   }}
                 >
                   <div className="card-body p-5 shadow-5">
-                    <h2 className="fw-bold mb-5">Sign up now</h2>
+                    <h2 className="head3">Sign up now</h2>
 
 
                     <form onSubmit={signupform.handleSubmit}>
