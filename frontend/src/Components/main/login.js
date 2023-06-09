@@ -26,7 +26,9 @@ const Login = () => {
                 icon:'success',
                 title:'success',
                 text:'user Loggedin success'
-              })
+              });
+
+              window.location.replace('http://localhost:5173');
             }else if(res.status===401){
                 Swal.fire({
                   icon:'error',

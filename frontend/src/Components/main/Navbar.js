@@ -13,6 +13,7 @@ const Navbar = () => {
       <h1><Link to="/">Front Crew</Link></h1>
       <ul className={click ? ".Nav-menu .active" : "Nav-menu"} >
         <li><Link to="/">Home</Link></li>
+        <li><a href="http://localhost:5173">Design Poster</a></li>
         <li><Link to="/main/Login">Login</Link></li>
         <li><Link to="/main/Sign_up">Sign_up</Link></li>
         <li><Link to="/main/Contact">Contact</Link></li>
