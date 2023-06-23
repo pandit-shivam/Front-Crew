@@ -4,9 +4,9 @@ import Navbar from './Components/main/Navbar';
 import { BrowserRouter, NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import Sign_up from './Components/main/Sign_up';
 import Home from './Components/main/Home';
-import Main from './Components/main/Index';
-import Login from './Components/main/Login';
+import Login from './Components/main/login';
 import Contact from './Components/main/Contact';
+import Main from './Components/main';
 
 function App() {
   return (

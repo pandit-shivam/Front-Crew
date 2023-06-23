@@ -20,6 +20,8 @@ app.get('/',(req,res)=>{
     res.send('Working Fine') 
 });
 
+app.use(express.static('./static'));
+
 
 app.get('/add',(req,res)=>{
     res.send('Add request on server')
